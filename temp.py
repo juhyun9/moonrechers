@@ -205,5 +205,5 @@ youtuberlistN=[]
 youtuberinput()
 for i in youtuberlist:
     takeContents(i)
-
+youtuber_pd.transpose()
 youtuber_pd.to_excel('result.xlsx')
