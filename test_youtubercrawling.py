@@ -25,8 +25,12 @@ warnings.filterwarnings('ignore')
 
 global youtuber_pd
 youtuber_pd=pd.DataFrame()
+global comment_finals
+comment_finals=pd.DataFrame()
 global comment_final
-comment_finals=[]
+comment_final=[]
+global pd_data
+pd_data={}
 
 #크롬드라이버 버전맞춰 자동 다운 및 시작
 try:
@@ -87,10 +91,9 @@ def takeContents(youtuber):
         number+=1
         hr= href.find("a")["href"]
         contentlist.append(hr)
-        print(number)
-        print(hr)
+        print('link crawling done')
         takeComments(youtuber,hr,number)
-        if number == 10:
+        if number == 2:
             break
     
     #contents_data = {'contents': contentlist}
@@ -105,7 +108,7 @@ def takeComments(youtuber,content,number):
     ws = wb.create_sheet()
 
     driver = webdriver.Chrome("C:/Users\CPS/anaconda3/Scripts/chromedriver.exe")
-    driver.get(url)
+    driver.get(url) #이 주소들 크롤링 선작업 필요
     driver.implicitly_wait(3)
     time.sleep(1.5)
 
@@ -137,7 +140,6 @@ def takeComments(youtuber,content,number):
     soup = BeautifulSoup(html_source, 'html.parser')
 
     comment_list = soup.select("yt-formatted-string#content-text")
-    comment_final=[]
     youtuber_final =[]
 
     for i in range(len(comment_list)):
@@ -146,65 +148,16 @@ def takeComments(youtuber,content,number):
         temp_comment = temp_comment.replace('\t', '')
         temp_comment = temp_comment.replace('    ', '')
         comment_final.append(temp_comment) # 댓글 내용
-        youtuber_final.append(youtuber)
-    
-    if content == contentlist[0]:
-        global list1
-        list1 = comment_final
-    elif content == contentlist[1]:
-        global list2
-        list2 = comment_final
-    elif content == contentlist[2]:
-        global list3
-        list3 = comment_final
-    elif content == contentlist[3]:
-        global list4
-        list4 = comment_final
-    elif content == contentlist[4]:
-        global list5
-        list5 = comment_final
-    elif content == contentlist[5]:
-        global list6
-        list6 = comment_final
-    elif content == contentlist[6]:
-        global list7
-        list7 = comment_final
-    elif content == contentlist[7]:
-        global list8
-        list8 = comment_final
-    elif content == contentlist[8]:
-        global list9
-        list9 = comment_final
-    elif content == contentlist[9]:
-        global list10
-        list10 = comment_final
 
-    print('comments crawling done')
+    for i in range(len(comment_final)):
+                   youtuber_final.append('youtuber')
+    if number == 10 :
+        pd_data = pd.DataFrame({"youtuber" : youtuber_final, number : comment_final})
+        
+    if youtuber == youtuberlist[-1]:
+        
+        print('comments crawling done')
+    #youtube_pd.to_excel(str(youtuber)+'_'+str(number)+'_'+'result.xlsx')
     
-    if number == 10:
-        df={'youtuber':youtuber_final,'1':list1,'2':list2,'3':list3,'4':list4,'5':list5,'6':list6,'7':list7,'8':list8,'9':list9,'10':list10}
-        temperature_df = pd.DataFrame.from_dict(df, orient='index')
-        global youtuber_pd
-        youtuber_pd=pd.concat([youtuber_pd,temperature_df], axis=1)
-        return youtuber_pd
-
-def youtuberinput():
-    inputyoutuber=str()
-    while inputyoutuber != 'noone':
-        inputyoutuber = input()
-        if inputyoutuber not in youtuberlist :
-            youtuberlistN.append(inputyoutuber)
-            youtuberlist.append(inputyoutuber)
-    youtuberlist.remove('noone')
-    youtuberlistN.remove('noone')
     
-#youtuberlist
-
-youtuberlist=['@EverydayIsThursdayNight','@PsickUniv','@jocoding']
-youtuberrelist=['@eo_studio','@TheLocalProject','@RISABAE','@Bodeumofficial','@MINEEEATS','@samdaejang_official','@beautyfool','@mmtg_oops','@youquizontheblock_official','@GYMJONGKOOK','@ootbstudio']
-youtuberlistN=[]
-youtuberinput()
-for i in youtuberlist:
-    takeContents(i)
-youtuber_pd.transpose()
-youtuber_pd.to_excel('result.xlsx')
+takeContents('@TheLocalProject')
