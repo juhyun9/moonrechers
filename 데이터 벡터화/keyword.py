@@ -1,17 +1,50 @@
-#konlpy 명사 추출
 import pandas as pd
-df1 = pd.read_cvs('C:/Users/xlawk/OneDrive/바탕 화면/제주대/논문/result.csv')
-from konlpy.tag import Mecab
-tagger = Mecab()
+youtuber_list = []
+for i in range(52):
+    youtuber_list.append(i)
+comments = ['배달의민족(배민) 배달 기사인 배민 라이더들이 어린이날인 5월 5일 하루간 배달을 안 한다는 입장을 공식화함에 ','따라 파장이 커지고 있다.','민주노총 서비스연맹 배달플랫폼노동조합은 지난 28일','서울 송파구 배달의민족 본사 앞에 모여 기자회견을 열고 ','배달의민족(우아한청년들)과 단체교섭 최종 결렬에 따라 다음 달 5일 파업을 결정했다''고 밝혔다.','노조 측은 “배민은 지난해 4200억원의 ','영업이익을 거뒀지만 라이더 기본배달료는 9년째 올리지 않아','이에 분노하며 경고 파업을 진행한다''고 말했다.','이들은 기본 배달료를' '3000원에서 4000원으로 인상하는 것을 포함해 △수도권보다','낮은 지방의 기본 배달료 차별 중단 △배달에 따른 고정 인센티브 지급',' △전업 라이더 중심성 강화 등을 요구해왔다.','지난 24일부터 27일까지 진행된 파업 찬반 투표에선 찬성률이 88.14%에 달했다','데이터 수집 과정은 <그림 2>와 같다.','먼저, 주변 2030 청년 7명에게 자주 보는 유튜버들에 대한 설문을 실시하여 총','14명의 유튜버를 선정하였다. 이 선정된 유튜버 정보들은 코드에 의해 리스트에 저장된다. 이후 저장된 유튜버마다','크롤링 과정이 진행된다. 크롤링 과정에서는 선정된 유튜버들의 인기 동영상 10개에 대한 댓글을 크롤링하여','데이터 프레임 형태로 정리한다. 이렇게 수집된 데이터는 추후 자연어 처리를 거쳐 키워드화, 수치화되며, ','특정 키워드 별로 유튜버들을 군집화하는 과정에서 효율적으로 사용된다.','크롤링 과정의 결과물은 유튜버와 특성의 정보를 띈 데이터 프레임으로 엑셀 파일로 로컬에 저장된다.',' Youtube 데이터를 수집하는 방법에는 API를 이용하는 방법과 크롤링을 이용하는 방법이 있다.','경제적인 이유로 크롤링 방법을 사용하기로 했다. ','Selenium 라이브러리를 이용하여 웹 인터페이스를 제어하고, 각 유튜버','페이지에서 인기순으로 동영상 10개에 대한 데이터를 수집한다. 다음으로,','각 동영상의 댓글들을 수집하기 위해 BeautifulSoup 패키지를 이용한다.','이를 위해 HTML 소스코드를 가져와 파싱하고, 추출된 댓글 정보를 리스트에 저장한다.','마지막으로, 이러한 과정을 모든 입력된 유튜버들에게 반복적으로 수행하고 수집된 데이터를 데이터 프레임 통합본에 추가한다.','팅 분야에서만 사용할 수 있는 것이 아니라, 다른 분야에서도 응용이 가능하다는 장점이 있다. 따라서 이러한 추천 시스템을 활용함으로써 기업은 보다 효율적이고 최적화된 마케팅 전략을 수립할 수 있을 것으로 기대된다.','Ⅱ.본론 1.현황  1.1 인플루언서 마케팅',' 인플루언서 마케팅이란 소셜미디어 플랫폼 및 오피니언 리더(Opinion leader)를 통해서','제품/서비스에 대해 설명하도록 함으로써 타인에게 영향을 주고자 하는 마케팅 기법이라고 정의한다(조영지, 2013).','인플루언서 마케팅을 더 간단히 이해하기 위해 Lasswell(1948)은 커뮤니케이션 모델의 기본 모델 중','하나인 SMCRE 모형이 제안된다. SMCRE 모형은 발신자, 메시지, 채널, 수신자, 효과로 구성된다고 한다.',' 인플루언서 마케팅의 특성은 다음과 같다.','첫째, 소셜미디어를 통해서 소비자들이 쉽고 빠르게 제품이나 서비스에 대한 정보를 잘 인지한다.','둘째, 소비자는 제품이나 서비스의 문제가 생기면 24시간 내로 해결할 수 있다. 셋째, 어떤 제품','에 대해서 인플루언서가 홍보한 제품이 일반 소비자들의 구매의도를 자극하여 기존의 마케팅으로 홍','보한 제품보다 더 잘 판매가 된다.(신경아, 한미정, 2019)',' 인플루언서 마케팅 현상을 이해하기 위해 커뮤니케이션 의 기본 모델 중 하나인 SMCRE mode','l로 인플루언서 마케 팅을 분석하여 보았다. SMCRE model은 Lasswell(1948) 에 의해 제안된 커뮤니케이션 모델이다.','SMCRE 모형은 발신자, 메시지, 채널, 수신자, 효과로 구성된다고 한다.','발신자(Source, Sender)는 콘텐츠를 제작해 보내는 존재이다.','과거 콘텐츠는 주로 기자, PD 등 전문가들이 담당하였다. 그러나 새로운 제작자들이 등장하기 시','작하였다. 이제 누구나 찍고, 쓰고, 편집할 수 있게 되었다. 자기 관심사를 내 맘대로 찍고, 공유하고, SNS를 통해 보낼 수','있게 되면서 블로그, 브이로거, 유튜버 등이 주목을 받기 시작했다.',' 메시지(Message)는 콘텐츠로, 이제는 스마트폰 하나면 영화 촬영과 편집까지 가능하게 되었다. ','메시지 제작에 대한 진입장벽이 낮아진 셈이다. 한편 기존의 광고 메시지는 너무 많아 홍수를 이루게 되면서','역으로 광고 효과는 감소하고 있다(Ray & Webb, 1986). 기업 입장에서는 광고 홍수 시대에 내 브랜드, 내 광고의','주목이 떨어지자 전면에 내세웠던 브랜드를 빼면서 대신 콘텐츠를 앞세우기 시작하였다. 인플루언서들이 제작하는','콘텐츠는','기존 미디어와 다른 제작 문법으로 다 양한 시도를 하였다. 동영상들은 How-to 영','상부터 몰래 카메라, 개봉 후기(unboxing), 실험, 체험 등 다양한 콘텐 츠로 재미,','말랑 말랑 두뇌 게임']
+df1 = pd.DataFrame(columns = [comments, youtuber_list])
 
+
+#konlpy 명사 추출
+from sklearn.feature_extraction.text import CountVectorizer
+import numpy as np
+
+from emoji import core
+import re
+
+#df1 = pd.read_csv('C:/Users/xlawk/OneDrive/바탕 화면/제주대/논문/result.csv', encoding='UTF-8')
+
+## 기호 제거
+   ## 기존 data 변수는 csv파일 내용 data 내부는 제목 title, 본문 main
+cl_data=[]
+df1[comments].tolist()
+for main in df1[comments].values.tolist():
+    cl_main = re.sub('[^|w|d|s]', '', main)
+    cl_main = core.replace_emoji(cl_main, replace=" ")
+    cl_data.append(cl_main)
 
 ## 불용어 제거
 stop_words = "불용어 목록"
-stop_words = stop.words.split(' ')
+fi_data = []
+for word in cl_data:
+    if word in stop_words:
+        while word in cl_main:
+            cl_main.remove(word)
+    if len(word) <= 1:
+        while word in cl_main:
+            cl_main.remove(word)
+    fi_data.append(cl_main)
 
-nouns = []
-for reple in reple:
-    for noun in tagger.nouns(reple):
-        if noun not in stop_words:
-            nouns.append(noun)
-nouns[]
+# 분석 데이터
+rep = []
+for fi_main in fi_data:
+    rep.append(" ".join(fi_main))
+
+yor['단어'] = pd.Se(fi_data)
+yor['본문'] = pd.se(rep)
+## 데이터 벡터화 df idf
+vecorizer = CountVectorizer()
+yor_tfidf = vecorizer.fit_transform(np.array(yor))
+yor_tfidf_matrix = pd.DataFrame(np.array(yor_tfidf.todense()), columns = vecorizer.ger_feature_names(), index = data['제목'])   ## 크롤링 한 data변수의 제목
+yor_tfidf_matrix
