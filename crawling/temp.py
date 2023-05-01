@@ -198,7 +198,7 @@ def youtuberinput():
 youtuberlist=['@EverydayIsThursdayNight','@PsickUniv','@jocoding']
 youtuberrelist=['@eo_studio','@TheLocalProject','@RISABAE','@Bodeumofficial','@MINEEEATS','@samdaejang_official','@beautyfool','@mmtg_oops','@youquizontheblock_official','@GYMJONGKOOK','@ootbstudio']
 youtuberlistN=[]
-youtuberinput()
+
 for i in youtuberlist:
     takeContents(i)
 

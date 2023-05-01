@@ -93,7 +93,7 @@ def takeContents(youtuber):
         contentlist.append(hr)
         print('link crawling done')
         takeComments(youtuber,hr,number)
-        if number == 2:
+        if number == 4:
             break
     
     #contents_data = {'contents': contentlist}
@@ -149,15 +149,9 @@ def takeComments(youtuber,content,number):
         temp_comment = temp_comment.replace('    ', '')
         comment_final.append(temp_comment) # 댓글 내용
 
-    for i in range(len(comment_final)):
-                   youtuber_final.append('youtuber')
-    if number == 10 :
-        pd_data = pd.DataFrame({"youtuber" : youtuber_final, number : comment_final})
         
-    if youtuber == youtuberlist[-1]:
-        
-        print('comments crawling done')
-    #youtube_pd.to_excel(str(youtuber)+'_'+str(number)+'_'+'result.xlsx')
+
     
-    
-takeContents('@TheLocalProject')
+youtuberlist=['@EverydayIsThursdayNight','@PsickUniv','@jocoding']
+for i in youtuberlist:
+    takeContents(i)
