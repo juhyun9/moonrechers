@@ -10,10 +10,10 @@ df = pd.read_excel('C:/result.xlsx')
 
 
 var_data = [df[name].tolist() for name in df.columns]
-                # name = 열 ex) 'youtuber'
+             
 
 #불용어
-stop_words = stopwords.words('english')
+stop_words = stopwords.words('korean')
 stop_words.extend(['을', '를', '이', '가', '은', '는', '에', '의', '로'])
 
 
@@ -26,13 +26,14 @@ emoji_pattern = re.compile("["u"\U0001F600-\U0001F64F"
 
 okt = Okt()
 
+## 벡터화
+vectorizer = TfidfVectorizer(stop_words = stop_words)
+
 #리스트 문자열 변환
 var_data_str = [' '.join(map(str, lst))for lst in var_data]
 
-## 벡터화
-vectorizer = TfidfVectorizer(stop_words = stop_words)
 vectors = vectorizer.fit_transform([emoji_pattern.sub(r'', text)) for text in var_data_str]).toarray()
 
-df_vectors = pd.DataFrame(vectors, columns = vectorizer.get_feature_names(), index = df.index)
-df_vectors.index.name = 'youtuber'
+df_vectors = pd.DataFrame(vectors, columns = vectorizer.get_feature_names_out(), index = df.columns)
+#df_vectors.index.name = 'youtuber'
 df_vectors.columns.name = 'comments'
