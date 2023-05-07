@@ -17,7 +17,7 @@ stop_words = stopwords.words('korean')
 stop_words.extend(['을', '를', '이', '가', '은', '는', '에', '의', '로'])
 
 
-comments_daa = []
+comments_data = []
   #이모지 제거
   emoji_pattern = re.compile("["u"\U0001F600-\U0001F64F"
         u"\U0001F300-\U0001F5FF"
