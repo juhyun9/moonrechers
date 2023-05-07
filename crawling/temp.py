@@ -146,10 +146,10 @@ def takeComments(youtuber,hr,number):
         temp_comment = temp_comment.replace('    ', '')
         comment_final.append(temp_comment) # 댓글 내용
     
-    data(youtuber,number,comment_final)
+    todataframe(youtuber,number,comment_final)
     
     
-def data(youtuber,number, comment_final):
+def todataframe(youtuber,number, comment_final):
     for j in comment_final:
         global comment_finals
         comment_finals.append(j)
@@ -167,21 +167,6 @@ def data(youtuber,number, comment_final):
         youtuber_pd["youtuber"] = [youtuber]
         youtuber_pd["comments"] = [comm]
 
-def data(youtuber,number, comment_final):
-    for j in comment_final:
-        global comment_finals
-        comment_finals.append(j)
-    if number == 10:
-        df={'youtuber'+str(number):youtuber,'comments':comment_finals}
-        temperature_df = pd.DataFrame.from_dict(df, orient='index')
-        global youtuber_pd
-        youtuber_pd=pd.concat([youtuber_pd,temperature_df], axis=1)
-        
-        
-youtuberlist=['@shyfilms','@wonchan','@depublik']
-
-for i in youtuberlist:
-    takeContents(i)
 
 def youtuberinput():
     inputyoutuber=str()
@@ -201,6 +186,5 @@ youtuberlistN=[]
 
 for i in youtuberlist:
     takeContents(i)
-
 
 youtuber_pd.to_csv('crawling.csv', sep=',', encoding='utf-8')
