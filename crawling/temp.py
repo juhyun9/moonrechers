@@ -26,7 +26,7 @@ warnings.filterwarnings('ignore')
 
 youtuber_pd=pd.DataFrame()
 comment_finals=[]
-video_num=2
+video_num= 2
 
 #크롬드라이버 버전맞춰 자동 다운 및 시작
 try:
@@ -158,30 +158,20 @@ def data(youtuber,number, comment_final):
         global df
         df={'youtuber'+str(number):youtuber,'comments':comment_finals}
         '''
-        global comm
         comm = ','.join(comment_finals)
         print(comm)
         print(youtuber)
 
-        global youtuber_pd
-        youtuber_pd["youtuber"] = [youtuber]
-        youtuber_pd["comments"] = [comm]
+        global youtuber_pd_pre
+        youtuber_pd_pre = pd.DataFrame()
+        youtuber_pd_pre["youtuber"] = [youtuber]
+        youtuber_pd_pre["comments"] = [comm]
 
-def data(youtuber,number, comment_final):
-    for j in comment_final:
-        global comment_finals
-        comment_finals.append(j)
-    if number == 10:
-        df={'youtuber'+str(number):youtuber,'comments':comment_finals}
-        temperature_df = pd.DataFrame.from_dict(df, orient='index')
         global youtuber_pd
-        youtuber_pd=pd.concat([youtuber_pd,temperature_df], axis=1)
-        
-        
-youtuberlist=['@shyfilms','@wonchan','@depublik']
+        youtuber_pd = pd.concat([youtuber_pd,youtuber_pd_pre])
+        comment_finals=[]
 
-for i in youtuberlist:
-    takeContents(i)
+
 
 def youtuberinput():
     inputyoutuber=str()
@@ -195,11 +185,11 @@ def youtuberinput():
     
 #youtuberlist
 
-youtuberlist=['@EverydayIsThursdayNight','@PsickUniv','@jocoding']
-youtuberrelist=['@eo_studio','@TheLocalProject','@RISABAE','@Bodeumofficial','@MINEEEATS','@samdaejang_official','@beautyfool','@mmtg_oops','@youquizontheblock_official','@GYMJONGKOOK','@ootbstudio']
+#youtuberlist=['@shyfilms','@wonchan','@depublik']
+youtuberrelist=['@EverydayIsThursdayNight', '@PsickUniv', '@jocoding', '@JTBCdrama', '@eo_studio', '@TheLocalProject', '@RISABAE', '@Bodeumofficial', '@MINEEEATS', '@samdaejang_official', '@beautyfool', '@mmtg_oops', '@youquizontheblock_official', '@GYMJONGKOOK', '@ootbstudio', '@Knowingbros', '@itsLiveOfficial', '@JBKWAK', '@ggondaehee', '@STUDIO_SUZE', '@EBS.LIFESTYLE', '@redpajamayaco', '@MBCtrueOn', '@Baeksang', '@tvNOfficial', '@rayejin', '@popfree', '@mrs_macarons', '@poong__e', '@jjaltoon', '@ITSUB', '@chongmmyung', '@little_sung_yup', '@TottenhamHotspur', '@officialbtob', '@VIVINOS', '@Ahn_19', '@alanbecker', '@JTBCMusic', '@tvNDENT', '@sungsikyung', '@shootforlovekorea', '@newsanhani', '@hunterfwang91', '@koreanenglishman', '@EatingwhatisGiven', '@somacguffin', '@odg.studio', '@user-nz8lo4cy8z', '@H___RYAN', '@kimhaejun', '@user-lb2kw3ge3p']
 youtuberlistN=[]
 
-for i in youtuberlist:
+for i in youtuberrelist:
     takeContents(i)
 
 
