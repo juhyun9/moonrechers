@@ -51,15 +51,30 @@ def process_data(data_str):
   word_tokens = okt.morphs(data_str)
   result = [word for word in word_tokens if not word in stop_words]
 
-  comments_data.append(data_str)
-  return comments_data
+  return data_str
+
+def to_keyword(data_str):
+   process_data(data_str)
+   comments_data = data_str.split()
+   return comments_data
 
 
+def return_commentsList(data_str):
+   process_data(data_str)
+   comments_data.append(data_str)
+   return comments_data
 
+# 각 행마다 함수 적용
+'''
+for i in range(len(df)):
+   df['clean_word'] = df['comments'].apply(process_data, axis=i)
+'''
+
+#process_data에 문제있는 듯. 그렇지 않고서야, 모든 행에 똑같은 내용 저장될 수가 없음
+
+df['clean_word'] = pd.Series(to_keyword)
 df['clean_com'] = df['comments'].apply(process_data)
 
-comments_data = data_str.split()
-df['clean_word'] = pd.Series(data_str)
 
 ## 벡터화
 vectorizer = TfidfVectorizer()
