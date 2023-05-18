@@ -3,69 +3,55 @@ import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from konlpy.tag import Okt
 from nltk.corpus import stopwords
-
+#nltk.download('stopwords')
 
 df = pd.read_csv('sourc/crawling.csv')
+youtubernum=len(df)
 
+clean_data1 =[]
+for main in df['comments'].to_list():
+    clean_main = re.sub('[^\w\d\s]', '', main)
+    clean_data1.append(clean_main)
 
+import konlpy
+komoran = konlpy.tag.Komoran()
+pos_data =[]
 
-var_data = [df[comments].tolist() for comments in df.columns]
-
-  #이모지 제거
-emoji_pattern = re.compile("["u"\U0001F600-\U0001F64F"
+#이모지 제거
+clean_data=[]
+for text in clean_data1:
+    emoji_pattern = re.compile("["u"\U0001F600-\U0001F64F"
         u"\U0001F300-\U0001F5FF"
         u"\U0001F680-\U0001F6FF"
         u"\U0001F1E0-\U0001F1FF"
-                           "]+", flags = re.UNICODE)
+                            "]+", flags = re.UNICODE)
+    text = emoji_pattern.sub(r'', text)
+    text = re.sub('[|A-Za-z|]+','', text)
+    text = re.sub('[|0-9|]+','', text)
+    text = re.sub("[^가-힣ㄱ-ㅎㅏ-ㅣ\\s]", "" ,text)    
+    clean_data.append(text)
 
-comments_data = []
-data_str = ' '.join(map(str,df['comments'].tolist()))
-data_str = emoji_pattern.sub(r'', data_str)
-data_str = re.sub("[^가-힣ㄱ-ㅎㅏ-ㅣ\\s]", "" ,data_str)
-data_str = re.sub('[^\w\d\s]','',data_str)
+for clean_main in clean_data:
+    try:
+        pos_main = komoran.pos(clean_main)
+    except: 
+        continue
+    pos_data.append(pos_main)
 
-#불용어 제거
-import pickle
-'''
-#불용어 목록 입력
-bull = []
-inputword=str()
-while inputword != 'no':
-    inputword = input()
-    bull.append(inputword)
-bull.remove('no')
-'''
-#불용어 리스트 저장
-with open('sourc/bull.pkl','wb') as f :
-    pickle.dump(bull,f)
-#불용어 리스트 불러오기
-with open ('sourc/bull.pkl','rb') as f: 
-    bullword = pickle.load(f)
-  
-okt = Okt()
-stop_words = stopwords.words('korean')
-stop_words.extend(bullword)
-stop_words = set(stop_words.split(''))
-word_tokens = okt.morphs(data_str)
-result = [word for word in word_tokens if not word in stop_words]
+filter_data = []
+for pos_main in pos_data:
+    filter_main=[]
+    for word, pos in pos_main:
+        if pos == "NNP":
+            filter_main.append(word)
+        elif pos =='NNG':
+            filter_main.append(word)
+    filter_data.append(filter_main)
 
-comments_data.append(data_str)
+docu = []
+for final_main in final_data:
+    docu.append(" ".join(final_main))
 
-df['clean_com'] = pd.Series(comments_data)
-
-data_str.split()
-df['clean_word'] = pd.series(data_str)
-
-## 벡터화
-vectorizer = TfidfVectorizer(stop_words = stop_words)
-
-#리스트 문자열 변환
-var_data_str = [' '.join(map(str, lst))for lst in var_data]
-
-vectors = vectorizer.fit_transform([(emoji_pattern.sub(r'', text)) for text in var_data_str]).toarray()
-
-df_vectors = pd.DataFrame(vectors, columns = vectorizer.get_feature_names_out(), index = df.columns)
-df_vectors.to_csv('sourc/df_vector_ju.csv', index = False)
-
-comments_df = pd.DataFrame({'comments': comments_data})
-comments_df.to_csv('sourc/comments_data_ju.csv', index=False)
+df['Aword'] = pd.Series(final_data)
+df['clean_com'] = pd.Series(docu)
+df.info()

@@ -6,10 +6,8 @@ from konlpy.tag import Okt
 #from nltk.corpus import stopwords
 #nltk.download('stopwords')
 
-
 df = pd.read_csv('sourc/crawling.csv')
 youtubernum=len(df)
-
 
 #이모지 제거
 emoji_pattern = re.compile("["u"\U0001F600-\U0001F64F"
