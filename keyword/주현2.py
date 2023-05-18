@@ -5,8 +5,12 @@ from konlpy.tag import Okt
 from nltk.corpus import stopwords
 #nltk.download('stopwords')
 
-df = pd.read_csv('sourc/crawling.csv')
-youtubernum=len(df)
+df = pd.read_csv('sourc/crawling.csv',encoding='utf-8')
+df = df.drop(['Unnamed: 0'],axis=1)
+#df = df.style.hide(axis='index')
+#youtubernum=len(df)
+#df = df.set_index("youtuber")
+
 
 clean_data1 =[]
 for main in df['comments'].to_list():
@@ -27,7 +31,7 @@ for text in clean_data1:
                             "]+", flags = re.UNICODE)
     text = emoji_pattern.sub(r'', text)
     text = re.sub('[|A-Za-z|]+','', text)
-    text = re.sub('[|0-9|]+')
+    text = re.sub('[|0-9|]+','', text)
     text = re.sub("[^가-힣ㄱ-ㅎㅏ-ㅣ\\s]", "" ,text)    
     clean_data.append(text)
 
@@ -43,7 +47,7 @@ for pos_main in pos_data:
     filter_main=[]
     for word, pos in pos_main:
         if pos == "NNP":
-            filter_main.append(word)  nmn m m
+            filter_main.append(word)
         elif pos =='NNG':
             filter_main.append(word)
     filter_data.append(filter_main)

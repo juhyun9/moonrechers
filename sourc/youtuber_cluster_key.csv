@@ -1,0 +1,169 @@
+group_id,youtuber,keyword
+0,"0     @EverydayIsThursdayNight
+35                    @VIVINOS
+31                @chongmmyung
+50                  @kimhaejun
+18                 @ggondaehee
+17                     @JBKWAK
+10                 @beautyfool
+8                   @MINEEEATS
+25                    @rayejin
+1                   @PsickUniv
+Name: youtuber, dtype: object","['요리조리', '이뿌자나ㅠㅠ', '개만으로', '이름을', 'genuine', '38송민호는', '너무좋으신분같고',
+       '지랄이였다', 'masterpiece', '이쁘게',
+       ...
+       '침대누웠는데', '시간인데', '깨우고', '싶어지는', '영상이네요ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ', '05학번이즈백', '10회',
+       '한사랑산악회', '4회', '에휴ㅋ'],
+      dtype='object', length=69043"
+1,"26          @popfree
+43    @hunterfwang91
+Name: youtuber, dtype: object","['재밌는', '자가', '악몽편에', '포세이돈이나', 'dam', '300이', '실패하면', '800이네',
+       '나라면튜브하겠다', '짜리야',
+       ...
+       '못찾았어', '꽃게두기연가시아이스크림연가시와', '각자먹는음식이반대로되있음', '몰라도', '비우고', '말해주세용',
+       '미션800인데300으로됨', '아프겟다', '주말에', '있었넼ㅋㅋ'],
+      dtype='object', length=14985"
+2,"45    @EatingwhatisGiven
+20        @EBS.LIFESTYLE
+19          @STUDIO_SUZE
+44     @koreanenglishman
+Name: youtuber, dtype: object","['미국인이', 'as', '다큐멘터리', '취향이지만외국인들이', '먹어야할텐데', 'ㄹㅇㅋㅋ', '이태리에서', '봄때',
+       '굴비싸요', '시키는',
+       ...
+       '소년사교적인', '먼가', '여태껏', '마음인거지', '먼지랑', '놀란목소리', '이모님들', 'rewatch',
+       '저격수시점이', '먹어야하는'],
+      dtype='object', length=33908"
+3,"42     @newsanhani
+22      @MBCtrueOn
+24    @tvNOfficial
+Name: youtuber, dtype: object","['빼는걸로', '피디인줄', '비슷', '관계자분들', '투표', '안전울', '안되는거죠', '차안에', '뒤봐주고',
+       '개념찾으라',
+       ...
+       '세컨카라고', '미안해', '줄을', '대단하고저', '망하길', '계기로', '봐주고', '지옥', '없었고',
+       '퇴직금까지'],
+      dtype='object', length=30514"
+4,"11      @mmtg_oops
+15    @Knowingbros
+Name: youtuber, dtype: object","['ㄷㄷ', 'huhuhu', '제일웃겨ㅋㅋㅋㅋㅋ', '중독이다', '여기서도', '보여', '느끼기', 'th', '할때',
+       '저는',
+       ...
+       'diga', 'let', '즐거워할', '승체리', '재밌었어요', '돌아있는', '났구나', '800만뷰', 'เกาหล',
+       '팬으로써'],
+      dtype='object', length=11871"
+5,"29      @jjaltoon
+37    @alanbecker
+Name: youtuber, dtype: object","['알바', '1학년', 'ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ', '했다', '갔을땐', '뻘하게', '34그냥', '40대', '사람을',
+       'ㅊ먹냐',
+       ...
+       '소스맛', '김수영에', '지나고', '기본', 'defeated', '주는', '스토리는', '오늘의', '포장햇엇구나',
+       '최고지'],
+      dtype='object', length=10395"
+6,"38          @JTBCMusic
+34       @officialbtob
+16    @itsLiveOfficial
+21      @redpajamayaco
+40        @sungsikyung
+Name: youtuber, dtype: object","['후드티', 'sasil', '삶이죠', '시험', 'kinds', 'among', 'huhu', 'proudly',
+       'oneuldo', 'logro',
+       ...
+       '크크루삥뽕328만사려', '거리에서였지만', 'aaaa', '후반이', '놀린다', '희재가', '명곡인지', 'нужно',
+       '난리', 'วแรก'],
+      dtype='object', length=30138"
+7,"12    @youquizontheblock_official
+47                    @odg.studio
+Name: youtuber, dtype: object","['생각하면', 'worried', '자기', 'barged', '놀랍지만', 'legendary', 'divertida',
+       '커서', '녹아', '제목좀ㅠㅜㅜ',
+       ...
+       '제발', 'enamore', 'cutest', 'البنيه', '압니다', '귀엽습니다', '이럼', 'loving',
+       'towards', 'english'],
+      dtype='object', length=8564"
+8,"32    @little_sung_yup
+23           @Baeksang
+46        @somacguffin
+Name: youtuber, dtype: object","['ㅈ간지', '찔금', '나가면', '등판', '깊은', '생긴', 'tony', 'min', '근육도', '받고',
+       ...
+       '차후', '시리즈', '책좀', '너무귀여워', '드리는', 'cried', '23살', 'sbs', 'speedrun',
+       '사랑받고'],
+      dtype='object', length=22305"
+9,"41    @shootforlovekorea
+36               @Ahn_19
+33     @TottenhamHotspur
+Name: youtuber, dtype: object","['discipline', 'gracias', 'mejor', 'kobe', '아이디어', '무료라길래', '있는거같긴하다',
+       '먹어서', 'إله', '걸려버리면',
+       ...
+       '30억은', '페레이라는', '쟤는', '잊지', '안된다고', '거기에', 'interest', '중간은간다', '32강',
+       '지켜요'],
+      dtype='object', length=20927"
+10,"51    @user-lb2kw3ge3p
+4           @eo_studio
+2            @jocoding
+Name: youtuber, dtype: object","['지키세요', '있잖아요', 'playerprefs', '부딪혀도', '잘생기셨어', '때요즘은', '걸려서', '한번더',
+       '누를', '젊었을때',
+       ...
+       '하시다닝', '메시지들과', '30년전에', 'ㅋㅋc를', '덕도', '47이랑', '것이구요', '이번', '빈약하다',
+       '없이119에'],
+      dtype='object', length=24957"
+11,"5    @TheLocalProject
+Name: youtuber, dtype: object","['man', 'can', 'dream', 'all', 'did', 'for', 'minutes', 'was', 'imagine',
+       'my',
+       ...
+       'только', 'через', 'него', 'truth', 'father', 'wing', 'sipping',
+       'latte', 'upspeak', 'tone'],
+      dtype='object', length=4545"
+12,"28          @poong__e
+7     @Bodeumofficial
+Name: youtuber, dtype: object","['ㅋㅋㅋㅋ지금영상우리강아지도그럼', '욕조에', '일어나', '헬프', '귀여워ㅋㅋㅋㅋ', '다르네', '놀아줬었어요',
+       '듯ㅋㅋㅋ부끄러워하는', '오줌누면', '개웃기네ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ',
+       ...
+       '똘망똘망', '오실듯요', '삐졌냐', '치시냐구욬ㅋㅋㅋㅋㅋㅋ', '누워계셨다고', '개가', '어른스럽네요', '지역에',
+       '있음ㅜㅠ', '모르겟어서ㅠㅎㅎ'],
+      dtype='object', length=12077"
+13,"49    @H___RYAN
+Name: youtuber, dtype: object","['25', '레오', '여왕님', '여름곤듀님', '가을왕쟈님', '겨울', '완벽해', '17', '요즘', '군대에서',
+       ...
+       '오빠가', '제꿈에', '나와서', '귀에', '침뱉었어요', '뱉었나요', '구취하려다', '참습니다', '닫아',
+       'ㅋㅋㅋㅋㅋㅋㄴㅋ'],
+      dtype='object', length=1888"
+14,"27       @mrs_macarons
+48    @user-nz8lo4cy8z
+Name: youtuber, dtype: object","['맛있어보이는건', '총선이', '검색중이거든요', '고스란히', '두부만으로', '무슨', 'acting', '요리아름다운손',
+       '영상이나', 'moly',
+       ...
+       '공유해', '맛있어요', '찌개처럼', '해먹긴하겠다만', '트라우마가있습니다ㅜㅠ', '든든하게', '한숟갈만', '국물',
+       '듣기좋은줄', '괜찮아하는'],
+      dtype='object', length=12760"
+15,"30    @ITSUB
+Name: youtuber, dtype: object","['테슬라가', '홍보를', '안해서', '그런데', '광고', '예산', '자체가', '없답니다', '이벤트가', '많습니다',
+       ...
+       '아무튼', '최악임', '비싼데왜', '살수있는폰을', '왜자급제로', '모순되는', '잘난체', '하지마세요플립3',
+       '24개월약정만', '통신아는사람'],
+      dtype='object', length=16543"
+16,"3     @JTBCdrama
+39      @tvNDENT
+Name: youtuber, dtype: object","['평생', 'жена', 'mata', 'gonna', '2004만회ㅋㅋㅋㅋㅋㅋ사람들', 'estos', 'ديهيم',
+       '생각만해도좋아', '2위차지하고있엌ㅋㅋ', '핸드폰에',
+       ...
+       '왜케', '논문사물의정수에센스dictionary기술사', '당돌하고', '키스씬보다가ost에훅꽃힘', '외모로만', '놀리면',
+       'toooooop', '910만', '걸렸을까', 'englishsixmovies'],
+      dtype='object', length=8955"
+17,"14     @ootbstudio
+13    @GYMJONGKOOK
+Name: youtuber, dtype: object","['everyone', '일분일분', '되는데', '귀여워함ㅋㅋㅋㅋㅋㅋㅋㅋ', '근데', '최소', '33', '교수님이라니',
+       '들을', 'comfortable',
+       ...
+       '무관한', 'snow', '운동얘기만', '스타일', '귀여워하네', '빠지기시작하면', '실무과로', '생각남',
+       'editing', '역도도'],
+      dtype='object', length=18814"
+18,"6    @RISABAE
+Name: youtuber, dtype: object","['뷰티나', '코스메틱에', '많이', '시간과', '돈을', '쏟을', '없고', '적당히', '예쁘게', '살고',
+       ...
+       '합쳐지면', 'ㄷㄷ하네요', '2월', '보고잇지', '4월', 'ㅂㅈㅂㄷㅂ', '쓰바', '사기아니냐', '오글',
+       '그닥'],
+      dtype='object', length=8985"
+19,"9    @samdaejang_official
+Name: youtuber, dtype: object","['por', 'favor', 'adicionem', 'legendas', 'em', 'português', 'do',
+       'brasil', 'já', 'assisti',
+       ...
+       'chao', '와드럽게못먹는데빨려들득마시께먹내ㅋ이제구독자돼서디지게잘먹는거같아', '도윤님보다', '맛있게드시네요',
+       '인정이라고', '생각하시는', '분손', '씹뱉이', '의심되는', '2031년에'],
+      dtype='object', length=7840"
