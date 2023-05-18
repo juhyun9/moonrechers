@@ -27,7 +27,7 @@ for text in clean_data1:
                             "]+", flags = re.UNICODE)
     text = emoji_pattern.sub(r'', text)
     text = re.sub('[|A-Za-z|]+','', text)
-    text = re.sub('[|0-9|]+','', text)
+    text = re.sub('[|0-9|]+')
     text = re.sub("[^가-힣ㄱ-ㅎㅏ-ㅣ\\s]", "" ,text)    
     clean_data.append(text)
 
@@ -43,15 +43,27 @@ for pos_main in pos_data:
     filter_main=[]
     for word, pos in pos_main:
         if pos == "NNP":
-            filter_main.append(word)
+            filter_main.append(word)  nmn m m
         elif pos =='NNG':
             filter_main.append(word)
     filter_data.append(filter_main)
 
 docu = []
-for final_main in final_data:
+for final_main in filter_data:
     docu.append(" ".join(final_main))
 
-df['Aword'] = pd.Series(final_data)
+df['Aword'] = pd.Series(filter_data)
 df['clean_com'] = pd.Series(docu)
 df.info()
+df.to_csv('sourc/comments_clean_data.csv', index=False)
+
+#tfidf 추출
+from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np
+
+vecorizer = TfidfVectorizer()
+docu_tfidf = vecorizer.fit_transform(np.array(docu))
+docu_tfidf_matrix = pd.DataFrame(np.array(docu_tfidf.todense()), columns = vecorizer.get_feature_names_out(), index = df['youtuber'])
+docu_tfidf_matrix.head(5)
+
+docu_tfidf_matrix.to_csv('sourc/comments_vector_data.csv', index=False)
