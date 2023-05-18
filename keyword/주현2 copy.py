@@ -32,18 +32,27 @@ with open('sourc/bull.pkl','wb') as f :
     pickle.dump(bull,f)
 '''
 #불용어 제거
+''' pickle 이용
 import pickle
 #불용어 리스트 불러오기
 with open ('sourc/bull.pkl','rb') as f: 
     bullword = pickle.load(f)
+'''
+file_path = "sourc/bull.txt"
+
+with open(file_path,"r", encoding='UTF-8') as f:
+    bullword = f.readlines()
+
+bullword = [line.rstrip('\n') for line in bullword] 
+stop_words = bullword
+#stop_words = set(stop_words.split('/n'))
 
 okt = Okt()
-stop_words = bullword
-#stop_words = set(stop_words.split(''))
 
 comments_data = []
 
 def process_data(data_str):
+  data_str = str()
   data_str = emoji_pattern.sub(r'', data_str)
   data_str = re.sub("[^가-힣ㄱ-ㅎㅏ-ㅣ\\s]", "" ,data_str)
   data_str = re.sub('[^\w\d\s]','',data_str)
@@ -55,7 +64,7 @@ def process_data(data_str):
 
 def to_keyword(data_str):
    process_data(data_str)
-   comments_data = data_str.split()
+   comments_data = data_str.split(',')
    return comments_data
 
 
@@ -73,11 +82,13 @@ for i in range(len(df)):
 #process_data에 문제있는 듯. 그렇지 않고서야, 모든 행에 똑같은 내용 저장될 수가 없음
 
 df['clean_word'] = pd.Series(to_keyword)
-df['clean_com'] = df['comments'].apply(process_data)
+df['clean_com'] = df['comments'].apply(return_commentsList)
 
 
 ## 벡터화
 vectorizer = TfidfVectorizer()
+
+var_data = [df['clean_com'].tolist() for name in df.columns]
 
 #리스트 문자열 변환
 var_data_str = [' '.join(map(str, lst))for lst in var_data]
